@@ -1,0 +1,19 @@
+# Menghindari kesalahan/ambigu ketika memanggil folder / file didalam folder app/assets
+Options -Multiviews
+
+# Menulis ulang url yang ada di browser
+RewriteEngine On
+
+# Konfigurasi dengan parameter REQUEST_FILENAME !-d (Folder diabaikan)
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Konfigurasi dengan parameter REQUEST_FILENAME !-d (File diabaikan)
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Ekspresi reguler
+# ^ (membaca apapun yang ditulis di url mulai dari awal)
+# ^(.*)$ (Ambil apapun * (karakternya satu per satu) sampai karakternya selesai / ambil semua karakter)
+# index.php?url= (arahkan ke file index yang mengirimkan url)
+# $1 (Placeholder yang diolah dari aturan regex)
+# [L] (jangan jalankan rule lain setelah aturan regex tersebut terpenuhi)
+RewriteRule ^(.*)$ index.php?url=$1 [L]

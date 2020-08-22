@@ -1,0 +1,1 @@
+<strong>catatan untuk saya:</strong> menu ini akan berisi variabel2 pada metode svm dan prophet yang dapat diubah dan dikirim ke python flask untuk diproses. <hr>
